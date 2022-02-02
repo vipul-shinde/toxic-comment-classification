@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Toxic Comment Classifier</title>
+
+    <!-- CSS Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="toxic-comment-classification/static/css/styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" crossorigin="anonymous" />
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Toxic Comment Classifier 🔍</h1>
+        <div class="mb-3"></div>
+        <form action="{{ url_for('predict')}}" method="POST">
+
+            <label for="text" class="form-label">Please enter the comment:</label>
+            <textarea class="form-control" id="text" name="text" rows="3"></textarea>
+            <button id="button" class="btn btn-primary btn-block btn-large classify-btn" type="submit" name="classify">Classify</button>
+
+        </form>
+
+        <h4>
+            {{pred_toxic}} <br><br> {{pred_severe}} <br><br> {{pred_obscene}} <br><br> {{pred_threat}} <br><br> {{pred_insult}} <br><br> {{pred_identity}} <br><br>
+
+        </h4>
+    </div>
+    </div>
+
+</html>

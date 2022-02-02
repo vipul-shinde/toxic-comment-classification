@@ -7,7 +7,6 @@ from nltk.corpus import stopwords
 stop_words = set(stopwords.words("english"))
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
-from sklearn.pipeline import FeatureUnion, Pipeline
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
