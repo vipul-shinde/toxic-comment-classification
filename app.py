@@ -2,6 +2,10 @@
 import numpy as np
 import joblib
 import re, string
+import nltk
+nltk.download("stopwords")
+nltk.download('punkt')
+nltk.download('wordnet')
 from nltk.corpus import stopwords
 stop_words = set(stopwords.words("english"))
 from nltk.tokenize import word_tokenize
@@ -10,7 +14,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.sparse import hstack
 from flask import Flask, request, jsonify, render_template, url_for
 from bs4 import BeautifulSoup
-# from model import clean_text, word_lemmatizer
 
 app = Flask(__name__)
 
@@ -61,16 +64,16 @@ def word_lemmatizer(text):
     return text
 
 # Loading the TFIF vectorizers
-word_tfidf = joblib.load("D:/Projects/toxic-comment-classification/models/word_tfidf_vectorizer.pkl")
-char_tfidf = joblib.load("D:/Projects/toxic-comment-classification/models/char_tfidf_vectorizer.pkl")
+word_tfidf = joblib.load("models/word_tfidf_vectorizer.pkl")
+char_tfidf = joblib.load("models/char_tfidf_vectorizer.pkl")
 
 # Loading the LR models for each label
-lr_toxic = joblib.load("D:/Projects/toxic-comment-classification/models/logistic_regression_toxic.pkl")
-lr_severe = joblib.load("D:/Projects/toxic-comment-classification/models/logistic_regression_severe_toxic.pkl")
-lr_obscene = joblib.load("D:/Projects/toxic-comment-classification/models/logistic_regression_obscene.pkl")
-lr_threat = joblib.load("D:/Projects/toxic-comment-classification/models/logistic_regression_threat.pkl")
-lr_insult = joblib.load("D:/Projects/toxic-comment-classification/models/logistic_regression_insult.pkl")
-lr_identity = joblib.load("D:/Projects/toxic-comment-classification/models/logistic_regression_identity_hate.pkl")
+lr_toxic = joblib.load("models/logistic_regression_toxic.pkl")
+lr_severe = joblib.load("models/logistic_regression_severe_toxic.pkl")
+lr_obscene = joblib.load("models/logistic_regression_obscene.pkl")
+lr_threat = joblib.load("models/logistic_regression_threat.pkl")
+lr_insult = joblib.load("models/logistic_regression_insult.pkl")
+lr_identity = joblib.load("models/logistic_regression_identity_hate.pkl")
 
 # Render the HTML file for home page
 @app.route("/")
@@ -111,4 +114,7 @@ def predict():
     
 if __name__ == "__main__":
     app.run(debug=True)    
-    
+
+# For AWS
+# if __name__ == '__main__':
+#     app.run(host="0.0.0.0", port=8080)
