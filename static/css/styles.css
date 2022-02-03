@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FFEDDB;
+}
+
+.main-header {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+.text-box {
+    margin: auto;
+}
+
+.main-container {
+    margin-top: 2%;
+    font-family: "Ubuntu";
+}
+
+.classify-btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
