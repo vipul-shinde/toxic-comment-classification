@@ -15,10 +15,9 @@
 ---
 
 <p align="center"> This is a toxic comment classifier web application that uses a Logistic Regression model to predict the toxicity levels of a given text input.
-Link to the web app: 👉🏻 http://ec2-18-117-78-151.us-east-2.compute.amazonaws.com:8080/
 </p>
 
-<h2> Link to the web app: 👉🏻 http://ec2-18-117-78-151.us-east-2.compute.amazonaws.com:8080/</h2>
+<h3> Link to the web app: 👉🏻 <a href="http://ec2-18-117-78-151.us-east-2.compute.amazonaws.com:8080/">Toxic Comment Classifier</a></h3>
 
 # toxic-comment-classification
 Toxic Comment Classifier Web App using Flask and AWS
