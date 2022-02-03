@@ -73,7 +73,7 @@ Test F1-Score: 0.9747181660736461
 
 ### Click to view 👇:
 
-[![forthebadge](images/solution-exploratory-data-analysis.svg)](https://github.com/vipul-shinde/toxic-comment-classification/blob/main/notebooks/02-model-building.ipynb)
+[![forthebadge](images/model-building-logistic-regression.svg)](https://github.com/vipul-shinde/toxic-comment-classification/blob/main/notebooks/02-model-building.ipynb)
 
 ## 🎯 Getting Started <a name = "getting started"></a>
 

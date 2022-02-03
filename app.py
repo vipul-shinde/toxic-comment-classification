@@ -2,10 +2,10 @@
 import numpy as np
 import joblib
 import re, string
-import nltk
-nltk.download("stopwords")
-nltk.download('punkt')
-nltk.download('wordnet')
+# import nltk
+# nltk.download("stopwords")
+# nltk.download('punkt')
+# nltk.download('wordnet')
 from nltk.corpus import stopwords
 stop_words = set(stopwords.words("english"))
 from nltk.tokenize import word_tokenize
