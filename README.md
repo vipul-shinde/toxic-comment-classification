@@ -1,6 +1,6 @@
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
-[![forthebadge](images/powered-by-aws.svg)](https://forthebadge.com)
-[![forthebadge](images/made-with-flask.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)]()
+[![forthebadge](images/powered-by-aws.svg)]()
+[![forthebadge](images/made-with-flask.svg)]()
 
 <h1 align="center">Toxic Comment Classification using Flask & AWS 🔍</h1>
 
@@ -26,24 +26,54 @@
 - [🧐 About](#about)
 - [🎯 Getting Started](#getting_started)
 - [📊 Dataset Overview](#data-overview)
+- [🧠 Model Building](#machine-learning-model)
 - [🎈 Usage](#usage)
 - [🚀 Deployment](#deployment)
-- [🧠 Model Building](#neural-network-model)
 - [🌟 Support](#support)
 
 ## 🧐 About <a name = "about"></a>
 
-This is a multi-label classification problem where the given input is a text comment and the output is list of the toxicity level it belongs to. The input text data needs to be cleaned and pre-processed for it to be useful for the Machine Learning model.
+This is a multi-label classification problem where the given input is a text comment and the output is list of the toxicity level it belongs to. 
+
+The input text data needs to be cleaned and pre-processed for it to be useful for the Machine Learning model.
 
 ## 📊 Dataset Overview <a name="data-overview"></a>
 
-The dataset for this problem was taken from <a href="https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/data">kaggle</a>.
+The dataset for this problem was taken from competetiion hosted by <a href="https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/data">Jigsaw</a> on Kaggle.
 
-The different types of target labels present are: toxic, severe-toxic, obscene, threat, insult and identity hate.
+For preprocessing of the input data and text vectorization, both word and char based TF-IDF vectorizer's output are used as inputs to the model for better performance and minimum loss of input features.
+
+The different types of target labels present are: ```toxic, severe-toxic, obscene, threat, insult and identity hate```.
 
 ### Click to view 👇:
 
 [![forthebadge](images/solution-exploratory-data-analysis.svg)](https://github.com/vipul-shinde/toxic-comment-classification/blob/main/notebooks/01-eda-and-data-cleaning.ipynb)
+
+## 🧠 Model Building <a name="machine-learning-model">
+
+For building the classifier, we have used Logistic Regression and treated the multi-label problem as a binary problem. The reason for this approach instead of a OneVsRest Classifier is because of better model performance when the problem is treated as a binary one. 
+
+Since the data is unbalanced, just accuary in itself cannot be considered as a strong evaluater, therefore we have used F1-score along with it to evaluate the model.
+
+Here are the results on validation and test datasets:
+
+```
+Validation Results 👇🏻
+
+Validation Accuracy: 0.9828502793879577
+Validation F1-Score: 0.9811947440446507
+```
+
+```
+Test Results 👇🏻
+
+Test Accuracy: 0.9752805651942854
+Test F1-Score: 0.9747181660736461
+```
+
+### Click to view 👇:
+
+[![forthebadge](images/solution-exploratory-data-analysis.svg)](https://github.com/vipul-shinde/toxic-comment-classification/blob/main/notebooks/02-model-building.ipynb)
 
 ## 🎯 Getting Started <a name = "getting started"></a>
 
