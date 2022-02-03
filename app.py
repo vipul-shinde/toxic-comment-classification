@@ -2,6 +2,7 @@
 import numpy as np
 import joblib
 import re, string
+import requests
 # import nltk
 # nltk.download("stopwords")
 # nltk.download('punkt')
@@ -96,14 +97,15 @@ def predict():
     all_features = hstack([word_features, char_features])
     
     # Predicting for each target variable
-    pred_toxic = lr_toxic.predict(all_features)
-    pred_severe_toxic = lr_severe.predict(all_features)
-    pred_obscene = lr_obscene.predict(all_features)
-    pred_threat = lr_threat.predict(all_features)
-    pred_insult = lr_insult.predict(all_features)
-    pred_identity = lr_identity.predict(all_features)
+    pred_toxic = np.round(lr_toxic.predict_proba(all_features)[:,1], 2)
+    pred_severe_toxic = np.round(lr_severe.predict_proba(all_features)[:,1], 2)
+    pred_obscene = np.round(lr_obscene.predict_proba(all_features)[:,1], 2)
+    pred_threat = np.round(lr_threat.predict_proba(all_features)[:,1], 2)
+    pred_insult = np.round(lr_insult.predict_proba(all_features)[:,1], 2)
+    pred_identity = np.round(lr_identity.predict_proba(all_features)[:,1], 2)
     
     return render_template("index.html",
+                            comment_text = f"Your input comment: {text_input}",
                             pred_toxic = f"Toxic: {pred_toxic}",
                             pred_severe = f"Severe Toxic: {pred_severe_toxic}",
                             pred_obscene = f"Obscene: {pred_obscene}",
