@@ -1,6 +1,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
-[![forthebadge](images\powered-by-aws.svg)](https://forthebadge.com)
-[![forthebadge](images\made-with-flask.svg)](https://forthebadge.com)
+[![forthebadge](images/powered-by-aws.svg)](https://forthebadge.com)
+[![forthebadge](images/made-with-flask.svg)](https://forthebadge.com)
 
 <h1 align="center">Toxic Comment Classification using Flask & AWS 🔍</h1>
 
@@ -18,7 +18,7 @@
 Link to the web app: 👉🏻 http://ec2-18-117-78-151.us-east-2.compute.amazonaws.com:8080/
 </p>
 
-
+<h2> Link to the web app: 👉🏻 http://ec2-18-117-78-151.us-east-2.compute.amazonaws.com:8080/</h2>
 
 # toxic-comment-classification
 Toxic Comment Classifier Web App using Flask and AWS
