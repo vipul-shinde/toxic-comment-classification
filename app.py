@@ -97,21 +97,21 @@ def predict():
     all_features = hstack([word_features, char_features])
     
     # Predicting for each target variable
-    pred_toxic = np.round(lr_toxic.predict_proba(all_features)[:,1], 2)
-    pred_severe_toxic = np.round(lr_severe.predict_proba(all_features)[:,1], 2)
-    pred_obscene = np.round(lr_obscene.predict_proba(all_features)[:,1], 2)
-    pred_threat = np.round(lr_threat.predict_proba(all_features)[:,1], 2)
-    pred_insult = np.round(lr_insult.predict_proba(all_features)[:,1], 2)
-    pred_identity = np.round(lr_identity.predict_proba(all_features)[:,1], 2)
+    pred_toxic = np.round(lr_toxic.predict_proba(all_features)[:,1], 2)*100
+    pred_severe_toxic = np.round(lr_severe.predict_proba(all_features)[:,1], 2)*100
+    pred_obscene = np.round(lr_obscene.predict_proba(all_features)[:,1], 2)*100
+    pred_threat = np.round(lr_threat.predict_proba(all_features)[:,1], 2)*100
+    pred_insult = np.round(lr_insult.predict_proba(all_features)[:,1], 2)*100
+    pred_identity = np.round(lr_identity.predict_proba(all_features)[:,1], 2)*100
     
     return render_template("index.html",
                             comment_text = f"Your input comment: {text_input}",
-                            pred_toxic = f"Toxic: {pred_toxic}",
-                            pred_severe = f"Severe Toxic: {pred_severe_toxic}",
-                            pred_obscene = f"Obscene: {pred_obscene}",
-                            pred_threat = f"Threat: {pred_threat}",
-                            pred_insult = f"Insult: {pred_insult}",
-                            pred_identity = f"Identity Hate: {pred_identity}"
+                            pred_toxic = f"Toxic: {' '.join(map(str, pred_toxic))} %",
+                            pred_severe = f"Severe Toxic: {' '.join(map(str, pred_severe_toxic))} %",
+                            pred_obscene = f"Obscene: {' '.join(map(str, pred_obscene))} %",
+                            pred_threat = f"Threat: {' '.join(map(str, pred_threat))} %",
+                            pred_insult = f"Insult: {' '.join(map(str, pred_insult))} %",
+                            pred_identity = f"Identity Hate: {' '.join(map(str, pred_identity))} %"
                            )
     
 if __name__ == "__main__":
